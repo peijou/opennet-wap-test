@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # Parameters for screen capture
-duration = 110  # seconds to record
+duration = 100  # seconds to record
 fps = 10  # frames per second
 region = (0, 0, 1800, 1000)  # (left, top, width, height)
 

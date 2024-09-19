@@ -77,17 +77,15 @@ class TestTwitch:
         Step6: On the streamer page wait until all is load and take a screenshot
         """
         init_driver.implicitly_wait(5)
-        try:
-            twitch.wait_and_get_element(lc_twitch.CHAT_ROOM, timeout=30)
-        except TimeoutException:  # Warning popup showed up
-            try:
-                twitch.wait_and_get_element(lc_twitch.WARNING_POPUP)
-                twitch.click_element(lc_twitch.START_WATCHING_BTN)
-            except TimeoutException:  # Something wrong page happened
-                twitch.wait_and_get_element(lc_twitch.STH_WRONG_PAGE)
-                twitch.click_browse_games()
-                # Search again
-                twitch.search_again(stream_name)
-                twitch.wait_and_get_element(lc_twitch.CHAT_ROOM, timeout=30)
+        if twitch.wait_and_get_element(lc_twitch.CHAT_ROOM):
+            twitch.screenshot()
+        elif twitch.wait_and_get_element(lc_twitch.WARNING_POPUP):
+            twitch.click_element(lc_twitch.START_WATCHING_BTN)
+            twitch.screenshot()
+        elif twitch.wait_and_get_element(lc_twitch.STH_WRONG_PAGE):
+            twitch.click_browse_games()
+            # Search again
+            twitch.search_again(stream_name)
+            twitch.wait_and_get_element(lc_twitch.CHAT_ROOM)
+            twitch.screenshot()
 
-        twitch.screenshot()
