@@ -2,7 +2,6 @@ import time
 
 import pytest
 from pytest_assume.plugin import assume
-from selenium.common import TimeoutException
 
 from locators import lc_google
 from locators import lc_twitch
@@ -15,7 +14,7 @@ class TestTwitch:
     @pytest.fixture(autouse=True)
     def component(self, init_driver):
         """
-        Get the component's object for better readability/usage,
+        Get the component's object for better readability/usage
         """
         global google
         global twitch
