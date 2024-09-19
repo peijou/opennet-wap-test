@@ -2,7 +2,7 @@
 ### ![opennet-wap-testing.gif](opennet-wap-testing.gif)
 
 ### Structure used in the repository
-/opennte-wap-test  
+/opennet-wap-test  
 ├── /locators  
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── lc_google.py  
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── lc_twitch.py  
