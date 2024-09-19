@@ -10,11 +10,8 @@ class Google(BasePage):
         super().__init__(driver)
 
     def search_page_or_not(self):
-        try:
-            self.wait_and_get_element(loc.WELCOME2CHROME)
-            self.click_element(loc.WITHOUT_LOGIN_BTN)
-        except TimeoutException:
-            pass
+        self.wait_and_get_element(loc.WELCOME2CHROME)
+        self.click_element(loc.WITHOUT_LOGIN_BTN)
 
     def search(self, text: str):
         self.set_text_field(element=loc.SEARCH_BAR, text=text)

@@ -9,6 +9,7 @@ class Twitch(BasePage):
         super().__init__(driver)
 
     def search(self, text: str):
+        # self.driver.implicitly_wait(5)
         self.set_text_field(element=loc.T_SEARCH_BAR, text=text)
         self.click_element(loc.T_CLICK_RESULT)
 

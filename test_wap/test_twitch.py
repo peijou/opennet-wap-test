@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from pytest_assume.plugin import assume
 from selenium.common import TimeoutException
@@ -24,8 +26,8 @@ class TestTwitch:
     def test_twitch(self, init_driver):
         # Check if it's the first time open Chrome
         google.search_page_or_not()
-        google.wait_and_get_element(lc_google.LANDING_PAGE)
-        google.click_element(lc_google.NO_THANKS_BTN)
+        if google.wait_and_get_element(lc_google.LANDING_PAGE):
+            google.click_element(lc_google.GOT_IT_NO_THANKS_BTN)
 
         """
         Step1: Go to Twitch
@@ -49,7 +51,8 @@ class TestTwitch:
         """
         stream_name = 'StarCraft II'
         # Wait for the search bar showed up
-        twitch.wait_and_get_element(lc_twitch.T_SEARCH_BAR)
+        time.sleep(3)
+        # twitch.wait_and_get_element(lc_twitch.T_SEARCH_BAR)
         twitch.search(stream_name)
         # Check the result displayed
         twitch.wait_and_get_element(lc_twitch.RESULT_TITLE)
@@ -73,6 +76,7 @@ class TestTwitch:
         """
         Step6: On the streamer page wait until all is load and take a screenshot
         """
+        init_driver.implicitly_wait(5)
         try:
             twitch.wait_and_get_element(lc_twitch.CHAT_ROOM, timeout=30)
         except TimeoutException:  # Warning popup showed up

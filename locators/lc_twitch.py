@@ -7,8 +7,7 @@ TWITCH_ICON = (AppiumBy.XPATH, '//android.view.View[@content-desc="Go to the Twi
 
 # Search page
 T_SEARCH_ICON = (AppiumBy.XPATH, '//android.view.View[@content-desc="Search"]/android.widget.TextView')
-T_SEARCH_BAR = (AppiumBy.XPATH,
-                '//android.view.View[@resource-id="page-main-content-wrapper"]/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText')
+T_SEARCH_BAR = (AppiumBy.XPATH, '//android.view.View[@resource-id="page-main-content-wrapper"]/android.view.View/android.view.View[2]/android.widget.EditText' or '//android.view.View[@resource-id="page-main-content-wrapper"]/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText')
 
 # Search result page
 T_CLICK_RESULT = (AppiumBy.XPATH, '(//android.widget.TextView[@text="StarCraft II"])[1]')
