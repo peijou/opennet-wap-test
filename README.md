@@ -16,5 +16,6 @@
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── screenshot.png  
 ├── recording.py  
 ├── open-net-testing.gif  
+├── .gitignore  
 ├── README.md  
 └── requirements.txt
